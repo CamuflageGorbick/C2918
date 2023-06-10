@@ -1,4 +1,4 @@
-# КЕША 2.0
+
 
 import config
 import stt
@@ -16,7 +16,7 @@ print(f"{config.VA_NAME} (v{config.VA_VER}) начал свою работу ...
 def va_respond(voice: str):
     print(voice)
     if voice.startswith(config.VA_ALIAS):
-        # обращаются к ассистенту
+
         cmd = recognize_cmd(filter_cmd(voice))
 
         if cmd['cmd'] not in config.VA_CMD_LIST.keys():
@@ -60,7 +60,7 @@ def execute_cmd(cmd: str):
         tts.va_speak(text)
         pass
     elif cmd == 'ctime':
-        # current time
+
         now = datetime.datetime.now()
         text = "Сейч+ас " + num2text(now.hour) + " " + num2text(now.minute)
         tts.va_speak(text)
@@ -77,5 +77,5 @@ def execute_cmd(cmd: str):
         webbrowser.get(chrome_path).open("http://python.org")
 
 
-# начать прослушивание команд
+
 stt.va_listen(va_respond)
